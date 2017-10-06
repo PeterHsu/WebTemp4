@@ -31,7 +31,7 @@ bld/
 # Visual Studio 2015 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
-#wwwroot/
+wwwroot/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -293,9 +293,5 @@ __pycache__/
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 # End of https://www.gitignore.io/api/csharp,visualstudiocode

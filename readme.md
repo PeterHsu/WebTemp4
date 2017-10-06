@@ -1,12 +1,11 @@
 # WebTemp4
-2017/3/28
+2017/10/06
 ## 專案目標
-以Angular 4及ASP.NET Core 1.1建置網站  
-Web支援Bootstrap 3
+以Angular 4及ASP.NET Core 2.0建置網站  
 ## 需要
-1. NodeJS: v7.7.3
-1. .NET Core 1.1 SDK: v1.0.1
-1. (npm)@angular/cli : v1.0.0
+1. NodeJS: v6.11.3
+1. .NET Core 2.0.0
+1. @angular/cli : v1.4.5
 ## 檢查
 1. $ node --version
 1. $ dotnet --version
@@ -43,7 +42,6 @@ WebTemp4>ng new Frontend --skip-install --routing --style=scss
 在WebTemp4目錄下新增Backend目錄
 ```
 Backend>dotnet new webapi
-Backend>dotnet add package Microsoft.AspNetCore.StaticFiles
 Backent>echo. 2>.gitignore
 ```
 到https://www.gitignore.io/
@@ -56,8 +54,17 @@ app.UseDefaultFiles();
 app.UseStaticFiles();
 ```
 ## 加入版控
+```
 WebTemp4>git init
 WebTemp4>git add --all
 WebTemp4>git commit -m "first commit"
-
+```
+## 開始建置
+```
+WebTemp4\Fontend>npm install
+WebTemp4\Fontend>ng build --prod --aot
+WebTemp4\Backend>dotnet restore
+WebTemp4\Backend>dotnet run
+```
+瀏覽 http://localhost:5000/
 
