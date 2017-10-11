@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/ToPromise';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  private valueUrl = 'api/values';
+  values: Trader[];
+  constructor(private http: Http){
+    this.getValues();
+  }
+  getValues() {
+    this.http.get(this.valueUrl)
+    .toPromise()
+    .then(response=>this.values = response.json() as Trader[]);
+  }
+}
+class Trader
+{
+  traderID:string;
+  account:string;
 }

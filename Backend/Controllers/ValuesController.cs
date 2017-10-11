@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Dapper;
+using System.Data.SqlClient;
 
 namespace Backend.Controllers
 {
+    public class Trader
+    {
+        public string TraderId { get; set; }
+        public string Account { get; set; }
+    }
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Trader> Get()
         {
-            return new string[] { "value1", "value2" };
+            SqlConnection conn = new SqlConnection("Data Source=172.24.26.39;Initial Catalog=Trade_DB;User Id=it;Password=it;");
+            return conn.Query<Trader>("Select [TraderId],[Account] from tssTraders");
         }
 
         // GET api/values/5
